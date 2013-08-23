@@ -16,7 +16,7 @@ to
 
 1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
 
-to enable auto-login.
+to enable auto-login. Then use .xinitrc to fire up a browser. I used Chromium because it's rendering is similar to Safari and it has good CSS3 support.
 
 Usage
 -----
