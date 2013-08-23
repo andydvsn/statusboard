@@ -25,7 +25,7 @@ if [[ "$STUDIO" =~ "studio" ]]; then
 
 	if [[ "$STATHAT" != "" ]]; then
 		#echo "Uploading load average of $LOAD..."
-		curl -d "email=music.technician@manchester.ac.uk&stat=$STUDIO load&value=$LOAD" http://api.stathat.com/ez &>/dev/null
+		curl -d "email=youraddress@here.com&stat=$STUDIO load&value=$LOAD" http://api.stathat.com/ez &>/dev/null
 		touch /tmp/statusboard_stathat
 	fi
 
