@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+	<meta charset=utf-8 />
+	<title></title>
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="layout.css" />
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	<script src="http://www.stathat.com/javascripts/embed.js"></script>
+	
+<script>
+
+$.ajaxSetup ({
+    // Disable caching of AJAX responses
+    cache: false
+});
+
+$(function() {
+    refreshDetails();
+});
+
+function refreshDetails() {
+    setTimeout(refreshDetails,5000);
+
+	// Colour Scheme: http://colorschemedesigner.com/#2B620lsbHr1RF
+
+	// Studio 1
+	$("#studio1_details").load("studio.php?studio=1", function(response, status, xhr) {
+
+		if (response.indexOf("console vacant") !=-1) {
+			$("#studio1").css('background-color', '#222');			// vacant
+		} else if (response.indexOf("console engaged") !=-1) {
+			$("#studio1").css('background-color', '#3C0A18');			// engaged
+		} else if (response.indexOf("console maintenance") !=-1) {
+			$("#studio1").css('background-color', '#3B4006');			// maintenance
+		} else {
+			$("#studio1").css('background-color', '#551B2C');			// urm?
+		}
+		
+		if (status == "error") {
+			var msg = "<h6>Oops! : ";
+			$("#studio1_details h6").remove();
+		    $("#studio1_details").append(msg + xhr.status + " " + xhr.statusText + "</h6>");
+		}
+		
+	});
+	
+
+	// Studio 2
+    $("#studio2_details").load("studio.php?studio=2", function(response, status, xhr) {
+    
+		if (response.indexOf("console vacant") !=-1) {
+			$("#studio2").css('background-color', '#222');			// vacant
+		} else if (response.indexOf("console engaged") !=-1) {
+			$("#studio2").css('background-color', '#3C0A18');			// engaged
+		} else if (response.indexOf("console maintenance") !=-1) {
+			$("#studio2").css('background-color', '#3B4006');			// maintenance
+		} else {
+			$("#studio2").css('background-color', '#551B2C');			// urm?
+		}
+    
+		if (status == "error") {
+			var msg = "<h6>Oops! : ";
+			$("#studio2_details h6").remove();
+		    $("#studio2_details").append(msg + xhr.status + " " + xhr.statusText + "</h6>");
+		}
+
+	});
+
+	// Studio 3
+	$("#studio3_details").load("studio.php?studio=3", function(response, status, xhr) {
+	
+		if (response.indexOf("console vacant") !=-1) {
+			$("#studio3").css('background-color', '#222');			// vacant
+		} else if (response.indexOf("console engaged") !=-1) {
+			$("#studio3").css('background-color', '#3C0A18');			// engaged
+		} else if (response.indexOf("console maintenance") !=-1) {
+			$("#studio3").css('background-color', '#3B4006');			// maintenance
+		} else {
+			$("#studio3").css('background-color', '#551B2C');			// urm?
+		}
+	
+		if (status == "error") {
+			var msg = "<h6>Oops! : ";
+			$("#studio3_details h6").remove();
+		    $("#studio3_details").append(msg + xhr.status + " " + xhr.statusText + "</h6>");
+		}
+		   
+	});
+
+	// Studio 4
+	$("#studio4_details").load("studio.php?studio=4", function(response, status, xhr) {
+	
+		if (response.indexOf("console vacant") !=-1) {
+			$("#studio4").css('background-color', '#222');			// vacant
+		} else if (response.indexOf("console engaged") !=-1) {
+			$("#studio4").css('background-color', '#3C0A18');			// engaged
+		} else if (response.indexOf("console maintenance") !=-1) {
+			$("#studio4").css('background-color', '#3B4006');			// maintenance
+		} else {
+			$("#studio4").css('background-color', '#551B2C');			// urm?
+		}
+	
+		if (status == "error") {
+			var msg = "<h6>Oops! : ";
+			$("#studio3_details h6").remove();
+		    $("#studio3_details").append(msg + xhr.status + " " + xhr.statusText + "</h6>");
+		}
+		
+	});
+
+}
+
+
+
+
+</script>
+	
+	
+</head>
+<body>
+
+
+	<div id="clock" class="box">
+		<!-- http://randomibis.com/coolclock/ -->
+		<script src="clock/coolclock.js"></script>
+		<script src="clock/moreskins.js"></script>
+		<canvas id="clk1" class="CoolClock:swissRailOnBlack:52"></canvas>
+	</div>
+	
+	
+	
+	<div id="topright" class="box">
+	
+		
+	
+	</div>
+	
+	
+	<div id="studio1" class="studio box">
+	
+		<p></p>
+	
+		<h3 class="studiotitle">Studio 1</h3>
+		<div id="studio1_details" class="studio_details"></div>
+
+		<div class="load">
+			<script>
+				// This is how we get the background graphs to reload.
+				refreshGraph1();
+				function refreshGraph1() {
+					setTimeout(refreshGraph1,900000);
+					$("#studio1 .load div a img").remove();
+					StatHatEmbed.render({s1: 'GJfv', w: 392, h: 80, tf: 'day', style: 'spark'});
+				}
+			</script>
+		</div>
+			
+	</div>
+	
+	
+	<div id="studio2" class="studio box">
+	
+		<h3 class="studiotitle">Studio 2</h3>
+		<div id="studio2_details" class="studio_details"></div>
+
+		<div class="load">
+			<script>
+				// This is how we get the background graphs to reload.
+				refreshGraph2();
+				function refreshGraph2() {
+					setTimeout(refreshGraph2,900000);
+					$("#studio2 .load div a img").remove();
+					StatHatEmbed.render({s1: 'OsCp', w: 392, h: 80, tf: 'day', style: 'spark'});
+				}
+			</script>
+		</div>
+		
+	</div>
+	
+	
+	<div id="studio3" class="studio box">
+	
+		<h3 class="studiotitle">Studio 3</h3>
+		<div id="studio3_details" class="studio_details"></div>
+
+		<div class="load">
+			<script>
+				// This is how we get the background graphs to reload.
+				refreshGraph3();
+				function refreshGraph3() {
+					setTimeout(refreshGraph3,900000);
+					$("#studio3 .load div a img").remove();
+					StatHatEmbed.render({s1: 'MhBa', w: 392, h: 80, tf: 'day', style: 'spark'});
+				}
+			</script>
+		</div>
+	
+	</div>
+	
+	
+	<div id="studio4" class="studio box">
+	
+		<h3 class="studiotitle">Studio 4</h3>
+		<div id="studio4_details" class="studio_details"></div>
+	
+		<div class="load">
+			<script>
+				// This is how we get the background graphs to reload.
+				refreshGraph4();
+				function refreshGraph4() {
+					setTimeout(refreshGraph4,900000);
+					$("#studio4 .load div a img").remove();
+					StatHatEmbed.render({s1: '1Fck', w: 392, h: 80, tf: 'day', style: 'spark'});
+				}
+			</script>
+		</div>
+	
+	</div>
+		
+	
+</body>
+</html>

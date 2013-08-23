@@ -1,0 +1,7 @@
+## Raspberry Pi Config
+##  For Status Board over Composite
+
+sdtv_mode=1
+display_rotate=1
+sdtv_aspect=2
+gpu_mem=64

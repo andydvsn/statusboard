@@ -1,0 +1,98 @@
+/* == reset == */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin: 0;
+	padding: 0;
+}
+
+/* == constraints == */					
+body {
+	width: 395px;
+	height: 635px;
+	overflow: hidden;
+	background-color: black;
+}
+
+/* == basics == */
+h1,h2,h3,h4,h5,h6,p {
+	color: white;
+	font-family: sans-serif;
+}
+
+/* == layout == */
+.box {
+	float: left;
+	display: inline-block;
+	border-radius: 20px;
+	background-color: #222;
+	min-height: 80px;
+	min-width: 90px;
+	overflow: hidden;
+}
+
+.leftpad {
+	margin-left: 10px;
+}
+
+
+/* == specifics == */
+#clock {
+	padding: 10px 10px 5px 10px;
+}
+
+
+#topright {
+	width: 258px;
+	height: 123px;
+	margin-left: 10px;
+	display: none;
+}
+
+/* studio blocks */
+.studio {
+	margin-top: 10px;
+	width: 392px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.studiotitle {
+	font-size: 10pt;
+	position: absolute;
+	margin: 6px 0 0 10px;
+}
+
+.studio_details {
+	position: absolute;
+	margin: 25px 0 0 10px;
+	
+}
+
+.studio .load div a img {	/* graph background */
+	float: left;
+	opacity: .3;
+	border-radius: 20px;
+}
+
+.idle.no h5 {
+	color: white;
+}
+
+.idle.yes h5 {
+	color: grey;
+}
+
+.workspace {
+	margin-top: 3px;
+}
+
+.workspace.ok h6 {
+	color: grey;
+}
+
+.workspace.warning h6 {
+	color: yellow;
+}
+
+.workspace.critical h6 {
+	color: red;
+}
