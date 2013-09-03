@@ -51,6 +51,14 @@ You should now find that the Pi has a 90 degree rotated display and fires up Chr
 	sudo chown root:wheel /Library/LaunchDaemons/com.studios.statusboard.plist
 	sudo launchctl load /Library/LaunchDaemons/com.studios.statusboard.plist
 
+3. Enable Apache
+
+If you're using Lion, just turn it on in System Preferences > Sharing.
+
+If you're using Mountain Lion, which has inexplicably removed this option:
+
+	sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+
 We only use Macs in the studios, so that's what this system monitors. But you could write anything that spits out a bit of HTML and get the web side to read it.
 
 
