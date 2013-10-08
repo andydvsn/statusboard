@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# statusboard.sh v1.06 (23/08/13) by Andy Davison.
+# statusboard.sh v1.07 (08/10/13) by Andy Davison.
 #  Stat gatherer and sender for the status board.
 
 
@@ -93,6 +93,10 @@ if [[ "$CONSOLEUSER" == "" ]]; then
 elif [[ "$CONSOLEUSER" == "admin" ]]; then
 
 	echo "<div class=\"console maintenance\"><h4>Maintenance</h4></div>" > /Library/WebServer/Documents/statusboard/status
+
+elif [[ "$CONSOLEUSER" == "root" ]]; then
+
+	echo "<div class=\"console maintenance\"><h4>Installing Software Updates...</h4></div>" > /Library/WebServer/Documents/statusboard/status
 
 elif [[ "$CONSOLEUSER" == "Guest" ]]; then
 
