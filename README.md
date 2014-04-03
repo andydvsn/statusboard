@@ -16,23 +16,23 @@ Get Raspbian onto an SD card and do the standard raspi-config. Then:
 2. Install the Matchbox window manager (to keep Midori happy) and Unclutter to lose the pointer. Matchbox is required as otherwise Midori has a habit of only using a small portion of the screen, but it really is a tiny window manager.
 
 		sudo apt-get update
-        sudo apt-get install matchbox unclutter
+		sudo apt-get install matchbox unclutter
 
 3. Put the .bash_profile and .xinitrc into /home/pi.
 
 4. Edit .xinitrc to load a page from the correct location. You will find in the .xinitrx that we use:
 
-        http://172.16.10.2/statusboard
+		http://172.16.10.2/statusboard
 
 But you will likely need something different, depending on where you're going to host the status board files.
 
 5. Enable auto-login on the Pi by editing /etc/inittab and change:
 
-	1:2345:respawn:/sbin/getty --noclear 38400 tty1 
+		1:2345:respawn:/sbin/getty --noclear 38400 tty1 
 
 to
 
-	1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
+		1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
 
 You should now find that the Pi has a 90 degree rotated display and fires up Midori automatically on reboot. If you check the .xinitrc file, you'll notice that the Pi actually sits and counts 43200 seconds (12 hours) before restarting Midori; this is just a bit of a cheat to do a complete refresh of the page now and again.
 
