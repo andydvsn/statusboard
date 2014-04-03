@@ -24,7 +24,7 @@ Get Raspbian onto an SD card and do the standard raspi-config. Then:
 
 		http://172.16.10.2/statusboard
 
-But you will likely need something different, depending on where you're going to host the status board files.
+	You will likely need something different, depending on where you're going to host the status board files.
 
 5. Enable auto-login on the Pi by editing /etc/inittab and change:
 
