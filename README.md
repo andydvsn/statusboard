@@ -15,14 +15,14 @@ Get Raspbian onto an SD card and do the standard raspi-config. Then:
 
 2. Install the Matchbox window manager (to keep Midori happy) and Unclutter to lose the pointer. Matchbox is required as otherwise Midori has a habit of only using a small portion of the screen, but it really is a tiny window manager.
 
-	sudo apt-get update
-	sudo apt-get install matchbox unclutter
+		sudo apt-get update
+        sudo apt-get install matchbox unclutter
 
 3. Put the .bash_profile and .xinitrc into /home/pi.
 
 4. Edit .xinitrc to load a page from the correct location. You will find in the .xinitrx that we use:
 
-	http://172.16.10.2/statusboard
+        http://172.16.10.2/statusboard
 
 But you will likely need something different, depending on where you're going to host the status board files.
 
