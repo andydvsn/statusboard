@@ -30,7 +30,7 @@ But you will likely need something different, depending on where you're going to
 
 		1:2345:respawn:/sbin/getty --noclear 38400 tty1 
 
-to
+	to
 
 		1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
 
