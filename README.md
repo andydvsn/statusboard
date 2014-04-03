@@ -53,9 +53,9 @@ You should now find that the Pi has a 90 degree rotated display and fires up Mid
 
 3. Enable Apache
 
-If you're using Lion, just turn it on in System Preferences > Sharing.
+	If you're using Lion, just turn it on in System Preferences > Sharing.
 
-If you're using Mountain Lion, which has inexplicably removed this option:
+	If you're using Mountain Lion, which has inexplicably removed this option:
 
         sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
 
