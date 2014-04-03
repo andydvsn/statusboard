@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# statusboard.sh v1.07 (08/10/13) by Andy Davison.
+# statusboard.sh v1.08 (03/04/14) by Andy Davison.
 #  Stat gatherer and sender for the status board.
 
 
@@ -72,7 +72,7 @@ fi
 
 ## System Activity
 # Get the usage of the Workspace drive as a percentage.
-WORKSPACEUSE=`df -k /Volumes/Workspace | grep Workspace | awk {'print $5'} | cut -f1 -d%`
+WORKSPACEUSE=`df -k /Users | grep Users | awk {'print $5'} | cut -f1 -d%`
 WORKSPACEREM=$((100-$WORKSPACEUSE))
 WORKSPACESTS="ok"
 [[ "$WORKSPACEUSE" -gt 80 ]] && WORKSPACESTS="warning"
