@@ -1,15 +1,19 @@
 #!/bin/bash
 
-# statusboard.sh v1.08 (03/04/14) by Andy Davison.
+# statusboard.sh v1.09 (03/04/14) by Andy Davison.
 #  Stat gatherer and sender for the status board.
 
+
+## Enter the email address you use for StatHat here.
+STATHATEMAIL=""
 
 
 ### Stathat Bit
 
-# We only bother with this if we're running on a Studio system.
-STUDIO=`hostname -s`
-if [[ "$STUDIO" =~ "studio" ]]; then
+# Only attempt if an email address has been entered.
+if [[ "$STATHATEMAIL" != "" ]]; then
+
+	STUDIO=`hostname -s`
 
 	# Get the current load average.
 	LOAD=`uptime | awk -F\averages:\  {'print $2'} | awk {'print $1'}`
@@ -25,7 +29,7 @@ if [[ "$STUDIO" =~ "studio" ]]; then
 
 	if [[ "$STATHAT" != "" ]]; then
 		#echo "Uploading load average of $LOAD..."
-		curl -d "email=youraddress@here.com&stat=$STUDIO load&value=$LOAD" http://api.stathat.com/ez &>/dev/null
+		curl -d "email=$STATHATEMAIL&stat=$STUDIO load&value=$LOAD" http://api.stathat.com/ez &>/dev/null
 		touch /tmp/statusboard_stathat
 	fi
 
