@@ -39,6 +39,8 @@ You should now find that the Pi has a 90 degree rotated display and fires up Mid
 
 # Mac
 
+You can download and unzip the whole repo and point the __statusboardinstaller.sh__ script at it now, or manually:
+
 1. Put statusboard.sh into /usr/local/bin.
 
         sudo mkdir -p /usr/local/bin
@@ -60,6 +62,8 @@ You should now find that the Pi has a 90 degree rotated display and fires up Mid
         sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
 
 We only use Macs in the studios, so that's what this system monitors. But you could write anything that spits out a bit of HTML and get the web side to read it.
+
+The __hubroom__ code is for monitoring our Hub Room temperature. This is copied only onto the server (in our circumstances) and the incoming air temperature is read using [Marcel Bresink's Temperature Monitor](http://www.bresink.com/osx/TemperatureMonitor.html "Temperature Monitor") command line binary. Just hide this 'block' in CSS or put your own magic there.
 
 
 # Web
