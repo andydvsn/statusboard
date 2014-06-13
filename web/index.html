@@ -25,18 +25,42 @@ function refreshDetails() {
     setTimeout(refreshDetails,5000);
 
 	// Colour Scheme: http://colorschemedesigner.com/#2B620lsbHr1RF
+	
+	
+	// Hub Room Status
+	$("#hubroom_rawtemp").load("fetchstatus.php?ip=1", function(response, status, xhr) {
+
+		if (response < 26) {
+			$("#hubroom").css('background-color', '#222');
+			$("#hubroom h5").remove();
+		    $("#hubroom").append('<h5 class="ok">OK</h5>');
+		} else {
+			$("#hubroom").css('background-color', 'red');
+			$("#hubroom h5").remove();
+		    $("#hubroom").append('<h5 class="problem">OVERHEAT!</h5>');
+		}
+		
+		if (status == "error") {
+			var msg = "<h6>Oops! : ";
+			$("#hubroom h6").remove();
+		    $("#hubroom").append(msg + xhr.status + " " + xhr.statusText + "</h6>");
+		}
+		
+	});
+	
 
 	// Studio 1
-	$("#studio1_details").load("studio.php?studio=1", function(response, status, xhr) {
+	$("#studio1_details").load("fetchstatus.php?ip=210", function(response, status, xhr) {
 
 		if (response.indexOf("console vacant") !=-1) {
-			$("#studio1").css('background-color', '#222');			// vacant
+			$("#studio1").css('background-color', '#222');				// vacant
 		} else if (response.indexOf("console engaged") !=-1) {
 			$("#studio1").css('background-color', '#3C0A18');			// engaged
 		} else if (response.indexOf("console maintenance") !=-1) {
 			$("#studio1").css('background-color', '#3B4006');			// maintenance
 		} else {
-			$("#studio1").css('background-color', '#551B2C');			// urm?
+			$("#studio1").css('background-color', '#142F3C');			// urm?
+		    $("#studio1_details").append("<h4>Offline</h4>");
 		}
 		
 		if (status == "error") {
@@ -49,16 +73,17 @@ function refreshDetails() {
 	
 
 	// Studio 2
-    $("#studio2_details").load("studio.php?studio=2", function(response, status, xhr) {
+    $("#studio2_details").load("fetchstatus.php?ip=220", function(response, status, xhr) {
     
 		if (response.indexOf("console vacant") !=-1) {
-			$("#studio2").css('background-color', '#222');			// vacant
+			$("#studio2").css('background-color', '#222');				// vacant
 		} else if (response.indexOf("console engaged") !=-1) {
 			$("#studio2").css('background-color', '#3C0A18');			// engaged
 		} else if (response.indexOf("console maintenance") !=-1) {
 			$("#studio2").css('background-color', '#3B4006');			// maintenance
 		} else {
-			$("#studio2").css('background-color', '#551B2C');			// urm?
+			$("#studio2").css('background-color', '#142F3C');			// urm?
+		    $("#studio2_details").append("<h4>Offline</h4>");
 		}
     
 		if (status == "error") {
@@ -70,7 +95,7 @@ function refreshDetails() {
 	});
 
 	// Studio 3
-	$("#studio3_details").load("studio.php?studio=3", function(response, status, xhr) {
+	$("#studio3_details").load("fetchstatus.php?ip=230", function(response, status, xhr) {
 	
 		if (response.indexOf("console vacant") !=-1) {
 			$("#studio3").css('background-color', '#222');			// vacant
@@ -79,7 +104,8 @@ function refreshDetails() {
 		} else if (response.indexOf("console maintenance") !=-1) {
 			$("#studio3").css('background-color', '#3B4006');			// maintenance
 		} else {
-			$("#studio3").css('background-color', '#551B2C');			// urm?
+			$("#studio3").css('background-color', '#142F3C');			// urm?
+		    $("#studio3_details").append("<h4>Offline</h4>");
 		}
 	
 		if (status == "error") {
@@ -91,22 +117,23 @@ function refreshDetails() {
 	});
 
 	// Studio 4
-	$("#studio4_details").load("studio.php?studio=4", function(response, status, xhr) {
+	$("#studio4_details").load("fetchstatus.php?ip=240", function(response, status, xhr) {
 	
 		if (response.indexOf("console vacant") !=-1) {
-			$("#studio4").css('background-color', '#222');			// vacant
+			$("#studio4").css('background-color', '#222');				// vacant
 		} else if (response.indexOf("console engaged") !=-1) {
 			$("#studio4").css('background-color', '#3C0A18');			// engaged
 		} else if (response.indexOf("console maintenance") !=-1) {
 			$("#studio4").css('background-color', '#3B4006');			// maintenance
 		} else {
-			$("#studio4").css('background-color', '#551B2C');			// urm?
+			$("#studio4").css('background-color', '#142F3C');			// urm?
+		    $("#studio4_details").append("<h4>Offline</h4>");
 		}
 	
 		if (status == "error") {
 			var msg = "<h6>Oops! : ";
-			$("#studio3_details h6").remove();
-		    $("#studio3_details").append(msg + xhr.status + " " + xhr.statusText + "</h6>");
+			$("#studio4_details h6").remove();
+		    $("#studio4_details").append(msg + xhr.status + " " + xhr.statusText + "</h6>");
 		}
 		
 	});
@@ -131,11 +158,14 @@ function refreshDetails() {
 	</div>
 	
 	
-	
-	<div id="topright" class="box">
-	
+	<div id="topmid" class="box">
 		
+	</div>
 	
+	
+	<div id="hubroom" class="box">
+		<h3 class="title">Hub Room</h3>
+		<h4 id="hubroom_details"><span id="hubroom_rawtemp"></span>&deg;C</h4>
 	</div>
 	
 	
@@ -143,7 +173,7 @@ function refreshDetails() {
 	
 		<p></p>
 	
-		<h3 class="studiotitle">Studio 1</h3>
+		<h3 class="title">Studio 1</h3>
 		<div id="studio1_details" class="studio_details"></div>
 
 		<div class="load">
@@ -151,7 +181,7 @@ function refreshDetails() {
 				// This is how we get the background graphs to reload.
 				refreshGraph1();
 				function refreshGraph1() {
-					setTimeout(refreshGraph1,900000);
+					setTimeout(refreshGraph1,600000);
 					$("#studio1 .load div a img").remove();
 					StatHatEmbed.render({s1: 'GJfv', w: 392, h: 80, tf: 'day', style: 'spark'});
 				}
@@ -163,7 +193,7 @@ function refreshDetails() {
 	
 	<div id="studio2" class="studio box">
 	
-		<h3 class="studiotitle">Studio 2</h3>
+		<h3 class="title">Studio 2</h3>
 		<div id="studio2_details" class="studio_details"></div>
 
 		<div class="load">
@@ -171,7 +201,7 @@ function refreshDetails() {
 				// This is how we get the background graphs to reload.
 				refreshGraph2();
 				function refreshGraph2() {
-					setTimeout(refreshGraph2,900000);
+					setTimeout(refreshGraph2,600000);
 					$("#studio2 .load div a img").remove();
 					StatHatEmbed.render({s1: 'OsCp', w: 392, h: 80, tf: 'day', style: 'spark'});
 				}
@@ -183,7 +213,7 @@ function refreshDetails() {
 	
 	<div id="studio3" class="studio box">
 	
-		<h3 class="studiotitle">Studio 3</h3>
+		<h3 class="title">Studio 3</h3>
 		<div id="studio3_details" class="studio_details"></div>
 
 		<div class="load">
@@ -191,7 +221,7 @@ function refreshDetails() {
 				// This is how we get the background graphs to reload.
 				refreshGraph3();
 				function refreshGraph3() {
-					setTimeout(refreshGraph3,900000);
+					setTimeout(refreshGraph3,600000);
 					$("#studio3 .load div a img").remove();
 					StatHatEmbed.render({s1: 'MhBa', w: 392, h: 80, tf: 'day', style: 'spark'});
 				}
@@ -203,7 +233,7 @@ function refreshDetails() {
 	
 	<div id="studio4" class="studio box">
 	
-		<h3 class="studiotitle">Studio 4</h3>
+		<h3 class="title">Studio 4</h3>
 		<div id="studio4_details" class="studio_details"></div>
 	
 		<div class="load">
@@ -211,7 +241,7 @@ function refreshDetails() {
 				// This is how we get the background graphs to reload.
 				refreshGraph4();
 				function refreshGraph4() {
-					setTimeout(refreshGraph4,900000);
+					setTimeout(refreshGraph4,600000);
 					$("#studio4 .load div a img").remove();
 					StatHatEmbed.render({s1: '1Fck', w: 392, h: 80, tf: 'day', style: 'spark'});
 				}

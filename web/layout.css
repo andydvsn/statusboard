@@ -40,12 +40,43 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
-#topright {
-	width: 258px;
+#topmid {
+	width: 124px;
 	height: 123px;
 	margin-left: 10px;
-	display: none;
+	visibility: hidden;
+	xxdisplay: none;
 }
+
+#hubroom {
+	width: 124px;
+	height: 123px;
+	margin-left: 10px;
+	text-align: center;
+}
+
+
+/* hub room block */
+
+#hubroom h3 {
+	font-size: 10pt;
+	margin: 22px 0 6px 0;
+}
+
+#hubroom h4 {
+	font-size: 2em;
+	margin-bottom: 6px;
+}
+
+#hubroom h5.ok {
+	color: grey;
+}
+
+#hubroom h5.problem {
+	color: white;
+}
+
+
 
 /* studio blocks */
 .studio {
@@ -55,7 +86,7 @@ h1,h2,h3,h4,h5,h6,p {
 	overflow: hidden;
 }
 
-.studiotitle {
+.studio .title {
 	font-size: 10pt;
 	position: absolute;
 	margin: 6px 0 0 10px;
@@ -64,7 +95,6 @@ h1,h2,h3,h4,h5,h6,p {
 .studio_details {
 	position: absolute;
 	margin: 25px 0 0 10px;
-	
 }
 
 .studio .load div a img {	/* graph background */
