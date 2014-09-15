@@ -9,6 +9,6 @@
 		<string>/usr/local/bin/statusboard.sh</string>
 	</array>
 	<key>StartInterval</key>
-	<integer>10</integer>
+	<integer>15</integer>
 </dict>
 </plist>

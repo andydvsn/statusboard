@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# statusboard.sh v1.09 (03/04/14) by Andy Davison.
+# statusboard.sh v1.10 (15/09/14) by Andy Davison.
 #  Stat gatherer and sender for the status board.
 
 
@@ -76,11 +76,13 @@ fi
 
 ## System Activity
 # Get the usage of the Workspace drive as a percentage.
-WORKSPACEUSE=`df -k /Users | grep Users | awk {'print $5'} | cut -f1 -d%`
-WORKSPACEREM=$((100-$WORKSPACEUSE))
+WORKSPACEOUT=`df -k -H /Users`
+WORKSPACEREM=`echo "$WORKSPACEOUT" | grep Users | awk {'print $4'}`
+WORKSPACEPERUSE=`echo "$WORKSPACEOUT" | grep Users | awk {'print $5'} | cut -f1 -d%`
+WORKSPACEPERREM=$((100-$WORKSPACEPERUSE))
 WORKSPACESTS="ok"
-[[ "$WORKSPACEUSE" -gt 80 ]] && WORKSPACESTS="warning"
-[[ "$WORKSPACEUSE" -gt 90 ]] && WORKSPACESTS="critical"
+[[ "$WORKSPACEPERUSE" -gt 80 ]] && WORKSPACESTS="warning"
+[[ "$WORKSPACEPERUSE" -gt 90 ]] && WORKSPACESTS="critical"
 
 
 
@@ -146,7 +148,7 @@ fi
 
 # Universal stats.
 echo "<div class=\"idle $REALLYIDLE\"><h5>$NICEIDLE</h5></div>" >> /Library/WebServer/Documents/statusboard/status
-echo "<div class=\"workspace $WORKSPACESTS\"><h6>$WORKSPACEREM% Workspace Remaining</h6></div>" >> /Library/WebServer/Documents/statusboard/status
+echo "<div class=\"workspace $WORKSPACESTS\"><h6>$WORKSPACEPERREM% ("$WORKSPACEREM"B) Workspace Remaining</h6></div>" >> /Library/WebServer/Documents/statusboard/status
 
 
 exit 0
