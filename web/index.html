@@ -5,6 +5,7 @@
 	<title></title>
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="layout.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="variations.css.php" />
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	
@@ -149,25 +150,30 @@ function refreshDetails() {
 </head>
 <body>
 
+	<div id="topboxes">
 
-	<div id="clock" class="box">
-		<!-- http://randomibis.com/coolclock/ -->
-		<script src="clock/coolclock.js"></script>
-		<script src="clock/moreskins.js"></script>
-		<canvas id="clk1" class="CoolClock:swissRailOnBlack:52"></canvas>
-	</div>
-	
-	
-	<div id="topmid" class="box">
+		<div id="clock" class="box">
+			<!-- http://randomibis.com/coolclock/ -->
+			<script src="clock/coolclock.js"></script>
+			<script src="clock/moreskins.js"></script>
+			<canvas id="clk1" class="CoolClock:swissRailOnBlack:52"></canvas>
+		</div>
 		
+		
+		<div id="topmid" class="box">
+		</div>
+		
+		
+		<div id="hubroom" class="box">
+			<h3 class="title">Hub Room</h3>
+			<h4 id="hubroom_details"><span id="hubroom_rawtemp"></span>&deg;C</h4>
+		</div>
+		
+		<div id="someother" class="box">
+			<h3 class="title">Badger</h3>
+		</div>
+
 	</div>
-	
-	
-	<div id="hubroom" class="box">
-		<h3 class="title">Hub Room</h3>
-		<h4 id="hubroom_details"><span id="hubroom_rawtemp"></span>&deg;C</h4>
-	</div>
-	
 	
 	<div id="studio1" class="studio box">
 	
@@ -183,7 +189,7 @@ function refreshDetails() {
 				function refreshGraph1() {
 					setTimeout(refreshGraph1,600000);
 					$("#studio1 .load div a img").remove();
-					StatHatEmbed.render({s1: 'GJfv', w: 392, h: 80, tf: 'day', style: 'spark'});
+					StatHatEmbed.render({s1: 'GJfv', w: 1000, h: 80, tf: 'day', style: 'spark'});
 				}
 			</script>
 		</div>
@@ -203,7 +209,7 @@ function refreshDetails() {
 				function refreshGraph2() {
 					setTimeout(refreshGraph2,600000);
 					$("#studio2 .load div a img").remove();
-					StatHatEmbed.render({s1: 'OsCp', w: 392, h: 80, tf: 'day', style: 'spark'});
+					StatHatEmbed.render({s1: 'OsCp', w: 1000, h: 80, tf: 'day', style: 'spark'});
 				}
 			</script>
 		</div>
@@ -223,7 +229,7 @@ function refreshDetails() {
 				function refreshGraph3() {
 					setTimeout(refreshGraph3,600000);
 					$("#studio3 .load div a img").remove();
-					StatHatEmbed.render({s1: 'MhBa', w: 392, h: 80, tf: 'day', style: 'spark'});
+					StatHatEmbed.render({s1: 'MhBa', w: 1000, h: 80, tf: 'day', style: 'spark'});
 				}
 			</script>
 		</div>
@@ -243,7 +249,7 @@ function refreshDetails() {
 				function refreshGraph4() {
 					setTimeout(refreshGraph4,600000);
 					$("#studio4 .load div a img").remove();
-					StatHatEmbed.render({s1: '1Fck', w: 392, h: 80, tf: 'day', style: 'spark'});
+					StatHatEmbed.render({s1: '1Fck', w: 1000, h: 80, tf: 'day', style: 'spark'});
 				}
 			</script>
 		</div>

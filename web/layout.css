@@ -6,7 +6,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 
 /* == constraints == */					
 body {
-	width: 395px;
+	/*width: 395px;*/ /* <- 395px was the max screen width */
 	height: 635px;
 	overflow: hidden;
 	background-color: black;
@@ -34,25 +34,30 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
-/* == specifics == */
-#clock {
-	padding: 10px 10px 5px 10px;
+/* == top boxes == */
+#topboxes {
+	width: 2000px;
 }
 
-
-#topmid {
-	width: 124px;
-	height: 123px;
-	margin-left: 10px;
-	visibility: hidden;
-	xxdisplay: none;
-}
-
-#hubroom {
+#topboxes .box {
 	width: 124px;
 	height: 123px;
 	margin-left: 10px;
 	text-align: center;
+}
+
+#clock {
+	padding: 10px 10px 5px 10px;
+	width: 104px !important;
+	height: 108px !important;
+	margin-left: 0 !important;
+}
+
+
+/* top middle block */
+
+#topmid {
+	visibility: hidden;
 }
 
 
@@ -60,12 +65,12 @@ h1,h2,h3,h4,h5,h6,p {
 
 #hubroom h3 {
 	font-size: 10pt;
-	margin: 22px 0 6px 0;
+	margin: 24px 0 6px 0;
 }
 
 #hubroom h4 {
 	font-size: 2em;
-	margin-bottom: 6px;
+	margin-bottom: 5px;
 }
 
 #hubroom h5.ok {
@@ -77,28 +82,42 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 
+/* blocks beyond here are overflowed on the screen */
+
+#someother h3 {
+	margin-top: 20px;
+}
+
+
 
 /* studio blocks */
 .studio {
 	margin-top: 10px;
-	width: 392px;
-	padding: 0;
+	width: 98%;
+	height: 80px;
 	overflow: hidden;
 }
 
+x.studio {
+	text-align: left !important;
+}
+
 .studio .title {
-	font-size: 10pt;
 	position: absolute;
-	margin: 6px 0 0 10px;
+	width: 94%;
+	margin: 6px 0 0 2%;
+	font-size: 10pt;
 }
 
 .studio_details {
 	position: absolute;
-	margin: 25px 0 0 10px;
+	xtext-align: left;
+	width: 94%;
+	margin: 26px 0 0 2%;
 }
 
 .studio .load div a img {	/* graph background */
-	float: left;
+	float: right;
 	opacity: .3;
 	border-radius: 20px;
 }
