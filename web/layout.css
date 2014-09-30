@@ -42,7 +42,7 @@ h1,h2,h3,h4,h5,h6,p {
 #topboxes .box {
 	width: 124px;
 	height: 123px;
-	margin-left: 10px;
+	margin-left: 15px;
 	text-align: center;
 }
 
@@ -88,12 +88,14 @@ h1,h2,h3,h4,h5,h6,p {
 	margin-top: 20px;
 }
 
-
+#someother2 h3 {
+	margin-top: 20px;
+}
 
 /* studio blocks */
 .studio {
 	margin-top: 10px;
-	width: 98%;
+	width: 96%;
 	height: 80px;
 	overflow: hidden;
 }
@@ -104,16 +106,15 @@ x.studio {
 
 .studio .title {
 	position: absolute;
-	width: 94%;
-	margin: 6px 0 0 2%;
+	width: 90%;
+	margin: 6px 0 0 3%;
 	font-size: 10pt;
 }
 
 .studio_details {
 	position: absolute;
-	xtext-align: left;
-	width: 94%;
-	margin: 26px 0 0 2%;
+	width: 90%;
+	margin: 26px 0 0 3%;
 }
 
 .studio .load div a img {	/* graph background */
