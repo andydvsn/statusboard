@@ -1,3 +1,3 @@
-if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
+if [ $(tty) = /dev/tty1 ]; then
   xinit
 fi
